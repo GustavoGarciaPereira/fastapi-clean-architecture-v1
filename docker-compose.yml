@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: postgres15_db
+    restart: always
+    environment:
+      POSTGRES_USER: user      # Substitua pelo seu usuário
+      POSTGRES_PASSWORD: password # Substitua pela sua senha
+      POSTGRES_DB: db_name      # Substitua pelo nome do seu banco
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
